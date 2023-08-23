@@ -6,13 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bina</title>
 	<link rel="stylesheet" href="main.css">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<form>
 		<div class="img"></div>
 		<div class="teclado">
-			<div class="logo"></div>
+			<div class="logo">
+				<span>Justiça Eleitoral</span>
+			</div>
 			<div class="nums">
 				<button id="1">1</button>
 				<button id="2">2</button>
