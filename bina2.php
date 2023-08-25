@@ -29,7 +29,7 @@
 				<button id="7">7</button>
 				<button id="8">8</button>
 				<button id="9">9</button><br>
-				<button id="0">0</button>
+				<button id="0">0</button><br>
 				<button id="branco">Branco</button>
 				<button id="Corrige">Corrige</button>
 				<button id="Confirma">Confirma</button>
