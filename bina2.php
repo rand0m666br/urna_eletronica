@@ -13,8 +13,10 @@
 </head>
 
 <body>
-	<form>
-		<div class="img"></div>
+	<form action="bina2.php" method="post" id="form">
+		<div class="img">
+			<div id="candidato"></div>
+		</div>
 		<div class="teclado">
 			<div class="logo">
 				<span>Justiça Eleitoral</span>
@@ -31,11 +33,30 @@
 				<button id="9">9</button><br>
 				<button id="0">0</button><br>
 				<button id="branco">Branco</button>
-				<button id="Corrige">Corrige</button>
-				<button id="Confirma">Confirma</button>
+				<button id="corrige">Corrige</button>
+				<button id="confirma">Confirma</button>
 			</div>
 		</div>
 	</form>
+
+	<script>
+		// Previnir a página de recarregar ao dar um submit
+		let form = document.getElementById("form");
+		function handleForm(event) {
+			event.preventDefault();
+		}
+		form.addEventListener('submit', handleForm);2
+
+		let num1 = document.getElementById("1");
+		let num2 = document.getElementById("2");
+
+		
+		// var1.onclick = function() {
+  			// document.var1.style.backgroundColor = "#FF0000";
+		 	// document.getElementById("candidato").style.backgroundImage = "url('img.png')";
+
+		// }
+	</script>
 </body>
 
 </html>
