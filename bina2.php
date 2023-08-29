@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bina</title>
 	<link rel="stylesheet" href="main.css">
-	
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -15,10 +15,34 @@
 <body>
 	<form action="bina2.php" method="post" id="form">
 		<div class="img">
+			<span id="titulo">Presidente</span>
+			<div id="resu">
+				<div id="linha">
+					<label>Número:</label>
+					<span id="numres"></span>
+				</div>
+				<div id="linha">
+					<label>Nome:</label>
+					<span id="nomeres"></span>
+				</div>
+				<div id="linha">
+					<label>Partido:</label>
+					<span id="partres"></span>
+				</div>
+				<div id="linha">
+					<label>Vice-Presidente:</label>
+					<span id="viceres"></span>
+				</div>
+			</div>
 			<div id="candidato"></div>
 			<span id="pres">Presidente</span>
 			<div id="vice"></div>
 			<span id="vicepres">Vice-Presidente</span>
+			<div id="confirmacao">
+				<p>Aperte a tecla:</p>
+				<p>CONFIRMA para CONFIRMAR este voto</p>
+				<p>CORRIGE para REINICIAR este voto</p>
+			</div>
 		</div>
 		<div class="teclado">
 			<div class="logo">
@@ -45,18 +69,67 @@
 	<script>
 		// Previnir a página de recarregar ao dar um submit
 		let form = document.getElementById("form");
+
 		function handleForm(event) {
 			event.preventDefault();
 		}
-		form.addEventListener('submit', handleForm);2
+		form.addEventListener('submit', handleForm);
 
-		let num1 = document.getElementById("1");
-		let num2 = document.getElementById("2");
+		function toca() {
+			const audio = new Audio("urna.mp3");
+			audio.play();
+		}
+		function alerta() {
+			alert('Obrigado por votar');
+		}
 
-		
+		// Capturar 2 dígitos consecutivos digitados
+		let buttons = document.querySelectorAll('button');
+		let lastDigit = null;
+
+		buttons.forEach(button => {
+			button.addEventListener('click', function(event) {
+				let digit = event.target.id;
+
+				if (!isNaN(digit) && lastDigit !== null) {
+					let consecDigitos = lastDigit + digit;
+					// alert('Dois dígitos consecutivos: ' + consecDigitos);
+
+					switch (consecDigitos) {
+						case "22":
+							document.getElementById("candidato").style.backgroundImage = "url('imagens/22.png')";
+							document.getElementById("numres").innerHTML = 22;
+							document.getElementById("nomeres").innerHTML = 'Jair Bolsonaro';
+							document.getElementById("partres").innerHTML = 'PL';
+							document.getElementById("viceres").innerHTML = 'Braga Neto';
+
+							document.getElementById("confirma").addEventListener('click', function() {
+								toca();
+								setTimeout(alerta, 100);
+							});
+							break;
+						case "13":
+							document.getElementById("candidato").style.backgroundImage = "url('imagens/13.png')";
+							document.getElementById("numres").innerHTML = 13;
+							document.getElementById("nomeres").innerHTML = 'Lula';
+							document.getElementById("partres").innerHTML = 'PT';
+							document.getElementById("viceres").innerHTML = '??';
+							break;
+
+					}
+				}
+
+				lastDigit = digit;
+			})
+		});
+
+		window.addEventListener('keyup', function() {
+			lastDigit = null;
+		});
+
 		// var1.onclick = function() {
-  			// document.var1.style.backgroundColor = "#FF0000";
-		 	// document.getElementById("candidato").style.backgroundImage = "url('img.png')";
+		// document.var1.style.backgroundColor = "#FF0000";
+		// document.getElementById("candidato").style.backgroundImage = "url('img.png')";
 
 		// }
 	</script>

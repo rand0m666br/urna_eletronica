@@ -109,3 +109,45 @@ form {
 	margin-top: 320px;
 	font-size: 12px;
 }
+#titulo {
+	position: absolute;
+	z-index: 11;
+	margin-left: 250px;
+	margin-top: 20px;
+	font-size: 22px;
+}
+#resu #linha {
+	display: block;
+	margin: 30px 0;
+}
+#resu {
+	 position: absolute;
+	 z-index: 11;
+	 margin-top: 50px;
+	 display: block;
+	 width: 300px;
+	 background-color: purple;
+}
+#resu span {
+	background-color: lightblue;
+	font-size: 22px;
+	margin-top: -5px;
+	float: right;
+	text-transform: uppercase;
+}
+#resu #numres {
+	font-size: 30px;
+	margin-top: -12px;
+}
+#confirmacao {
+	position: absolute;
+	z-index: 11;
+	margin-top: 320px;
+	border-top: 1px solid black;
+	width: 500px
+}
+#confirmacao p:nth-child(2){
+	margin-left: 30px;
+}#confirmacao p:nth-child(3){
+	margin-left: 60px;
+}
