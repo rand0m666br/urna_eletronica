@@ -16,6 +16,9 @@
 	<form action="bina2.php" method="post" id="form">
 		<div class="img">
 			<div id="candidato"></div>
+			<span id="pres">Presidente</span>
+			<div id="vice"></div>
+			<span id="vicepres">Vice-Presidente</span>
 		</div>
 		<div class="teclado">
 			<div class="logo">

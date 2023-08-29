@@ -76,10 +76,36 @@ form {
 	height: 50px;
 }
 #candidato {
-	width: 100px;
-	height: 200px;
+	width: 125px;
+	height: 170px;
 	background-color: black;
-	display: inline-block;
+/*	display: inline-block;*/
 /*	z-index: 10;*/
 /*	position: absolute;*/
+	float: right;
+}
+#vice {
+	width: 90px;
+	height: 115px;
+	background-color: grey;
+	float: right;
+	margin-top: 200px;
+	margin-right: -125px;
+}
+#pres {
+	float: right;
+	position: absolute;
+	z-index: 10;
+	margin-left: 500px;
+/*	color: aliceblue;*/
+	margin-top: 175px;
+}
+#vicepres {
+	float: right;
+	position: absolute;
+	z-index: 10;
+	margin-left: 515px;
+/*	color: aliceblue;*/
+	margin-top: 320px;
+	font-size: 12px;
 }
