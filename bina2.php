@@ -68,6 +68,8 @@
 	</form>
 
 	<script>
+		// Está enviando votos mesmo sem apertar no confirma. Consertar urgentemente
+
 		// Previnir a página de recarregar ao dar um submit
 		let form = document.getElementById("form");
 
@@ -99,7 +101,7 @@
 				if(digit == 'branco'){
 					alert('branco');
 				}
-				if(digit == 'confirma'){
+				if(digit == 'confirma' && lastDigit == null){
 					alert('nulo');
 				}
 
