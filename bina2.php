@@ -1,3 +1,4 @@
+<?php require("conexao.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -79,6 +80,7 @@
 			const audio = new Audio("urna.mp3");
 			audio.play();
 		}
+
 		function alerta() {
 			alert('Obrigado por votar');
 		}
@@ -91,31 +93,53 @@
 			button.addEventListener('click', function(event) {
 				let digit = event.target.id;
 
+				// Detectando caso o voto sela BRANCO ou NULO
+				// Melhorar isso aqui depois
+				if(digit == 'branco'){
+					alert('branco');
+				}
+				if(digit == 'confirma'){
+					alert('nulo');
+				}
+
 				if (!isNaN(digit) && lastDigit !== null) {
 					let consecDigitos = lastDigit + digit;
 					// alert('Dois dígitos consecutivos: ' + consecDigitos);
 
+					// Ação a ser executada ao apertar 2 dígitos
 					switch (consecDigitos) {
 						case "22":
 							document.getElementById("candidato").style.backgroundImage = "url('imagens/22.png')";
+							document.getElementById("vice").style.backgroundImage = "url('imagens/22vice.png')";
 							document.getElementById("numres").innerHTML = 22;
 							document.getElementById("nomeres").innerHTML = 'Jair Bolsonaro';
 							document.getElementById("partres").innerHTML = 'PL';
-							document.getElementById("viceres").innerHTML = 'Braga Neto';
+							document.getElementById("viceres").innerHTML = 'Braga Netto';
 
 							document.getElementById("confirma").addEventListener('click', function() {
 								toca();
 								setTimeout(alerta, 100);
+
+								// Isso é um erro de segurança, preciso ver se consigo fazer de outro jeito usando json
+								<?php require("bolsovoto.php"); ?>
 							});
 							break;
 						case "13":
 							document.getElementById("candidato").style.backgroundImage = "url('imagens/13.png')";
+							document.getElementById("vice").style.backgroundImage = "url('imagens/13vice.png')";
 							document.getElementById("numres").innerHTML = 13;
 							document.getElementById("nomeres").innerHTML = 'Lula';
 							document.getElementById("partres").innerHTML = 'PT';
-							document.getElementById("viceres").innerHTML = '??';
-							break;
+							document.getElementById("viceres").innerHTML = 'Geraldo Alckmin';
 
+							document.getElementById("confirma").addEventListener('click', function() {
+								toca();
+								setTimeout(alerta, 100);
+
+								// Novamente o erro
+								<?php require("bolsovoto.php"); ?>
+							});
+							break;
 					}
 				}
 
