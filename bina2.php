@@ -109,7 +109,7 @@
 					// Ação a ser executada ao apertar 2 dígitos
 					switch (consecDigitos) {
 						case "22":
-							document.getElementById("candidato").style.backgroundImage = "url('imagens/22.png')";
+							document.getElementById("candidato").style.backgroundImage = "url('imagens/22p.png')";
 							document.getElementById("vice").style.backgroundImage = "url('imagens/22vice.png')";
 							document.getElementById("numres").innerHTML = 22;
 							document.getElementById("nomeres").innerHTML = 'Jair Bolsonaro';
@@ -125,7 +125,7 @@
 							});
 							break;
 						case "13":
-							document.getElementById("candidato").style.backgroundImage = "url('imagens/13.png')";
+							document.getElementById("candidato").style.backgroundImage = "url('imagens/13p.png')";
 							document.getElementById("vice").style.backgroundImage = "url('imagens/13vice.png')";
 							document.getElementById("numres").innerHTML = 13;
 							document.getElementById("nomeres").innerHTML = 'Lula';
