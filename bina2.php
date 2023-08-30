@@ -76,6 +76,7 @@
 		}
 		form.addEventListener('submit', handleForm);
 
+		// Tocar áudio
 		function toca() {
 			const audio = new Audio("urna.mp3");
 			audio.play();
@@ -93,7 +94,7 @@
 			button.addEventListener('click', function(event) {
 				let digit = event.target.id;
 
-				// Detectando caso o voto sela BRANCO ou NULO
+				// Detectando caso o voto seja BRANCO ou NULO
 				// Melhorar isso aqui depois
 				if(digit == 'branco'){
 					alert('branco');
@@ -104,7 +105,6 @@
 
 				if (!isNaN(digit) && lastDigit !== null) {
 					let consecDigitos = lastDigit + digit;
-					// alert('Dois dígitos consecutivos: ' + consecDigitos);
 
 					// Ação a ser executada ao apertar 2 dígitos
 					switch (consecDigitos) {
@@ -150,12 +150,6 @@
 		window.addEventListener('keyup', function() {
 			lastDigit = null;
 		});
-
-		// var1.onclick = function() {
-		// document.var1.style.backgroundColor = "#FF0000";
-		// document.getElementById("candidato").style.backgroundImage = "url('img.png')";
-
-		// }
 	</script>
 </body>
 
