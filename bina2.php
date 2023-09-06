@@ -1,4 +1,3 @@
-<?php require("conexao.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bina</title>
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="style/main.css">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +14,9 @@
 
 <body>
 	<form action="bina2.php" method="post" id="form">
+		<div id="obg">
+			<span>FIM</span>
+		</div>
 		<div class="img">
 			<span id="titulo">Presidente</span>
 			<div id="resu">
@@ -85,7 +87,11 @@
 		}
 
 		function alerta() {
-			alert('Obrigado por votar');
+			// alert('Obrigado por votar');
+			let obg = document.getElementById("obg");
+			if (obg.style.display == 'none') {
+				obg.style.display = 'block';
+			}
 		}
 
 		// Capturar 2 dígitos consecutivos digitados
@@ -98,10 +104,10 @@
 
 				// Detectando caso o voto seja BRANCO ou NULO
 				// Melhorar isso aqui depois
-				if(digit == 'branco'){
+				if (digit == 'branco') {
 					alert('branco');
 				}
-				if(digit == 'confirma' && lastDigit == null){
+				if (digit == 'confirma' && lastDigit == null) {
 					alert('nulo');
 				}
 
@@ -120,15 +126,15 @@
 
 							document.getElementById("confirma").addEventListener('click', function() {
 								toca();
-								setTimeout(alerta, 100);
+								// por algum motivo isso não está funcionando
+								alerta();
 
-								// Começo da requisição via AJAX
+								// Requisição via AJAX
 								let xhr = new XMLHttpRequest();
-								xhr.open("POST", "bolsovoto.php", true);
+								xhr.open("POST", "php/bolsovoto.php", true);
 								xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-								// Erro extremamente estúpido. O PHP será carregado antes de tudo e contará os votos para o candidato
-								<?php require("bolsovoto.php"); ?>
+								xhr.send("acao=botaoPressionado");
 							});
 							break;
 						case "13":
@@ -141,10 +147,8 @@
 
 							document.getElementById("confirma").addEventListener('click', function() {
 								toca();
-								setTimeout(alerta, 100);
-
-								// Novamente o erro
-								<?php require("lulavotos.php"); ?>
+								// alerta();
+								// setTimeout(alerta, 100);
 							});
 							break;
 					}

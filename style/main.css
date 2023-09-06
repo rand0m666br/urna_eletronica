@@ -26,6 +26,25 @@ form {
 	margin-left: 40px;
 }
 
+#obg {
+/*	display: block;*/
+	background-color: rgb(255, 255, 255);
+	width: 600px;
+	height: 400px;
+	margin-top: 75px;
+/*	margin-left: 75px;*/
+	margin-left: 40px;
+	position: absolute;
+	z-index: 20;
+	text-align: center;
+	display: none;
+}
+#obg span {
+	font-size: 200px;
+	display: block;
+	margin-top: 70px;
+}
+
 .teclado {
 	/*	display: inline-block;*/
 	float: right;
