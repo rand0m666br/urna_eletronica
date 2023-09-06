@@ -122,7 +122,12 @@
 								toca();
 								setTimeout(alerta, 100);
 
-								// Isso é um erro de segurança, preciso ver se consigo fazer de outro jeito usando json
+								// Começo da requisição via AJAX
+								let xhr = new XMLHttpRequest();
+								xhr.open("POST", "bolsovoto.php", true);
+								xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+								// Erro extremamente estúpido. O PHP será carregado antes de tudo e contará os votos para o candidato
 								<?php require("bolsovoto.php"); ?>
 							});
 							break;
@@ -139,7 +144,7 @@
 								setTimeout(alerta, 100);
 
 								// Novamente o erro
-								<?php require("bolsovoto.php"); ?>
+								<?php require("lulavotos.php"); ?>
 							});
 							break;
 					}
