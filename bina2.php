@@ -86,12 +86,10 @@
 			audio.play();
 		}
 
+		// Mostrar mensagem de fim
 		function alerta() {
-			// alert('Obrigado por votar');
-			let obg = document.getElementById("obg");
-			if (obg.style.display == 'none') {
-				obg.style.display = 'block';
-			}
+			const obg = document.getElementById("obg");
+			obg.style.display = "block";
 		}
 
 		// Capturar 2 dígitos consecutivos digitados
@@ -126,7 +124,6 @@
 
 							document.getElementById("confirma").addEventListener('click', function() {
 								toca();
-								// por algum motivo isso não está funcionando
 								alerta();
 
 								// Requisição via AJAX
@@ -134,7 +131,7 @@
 								xhr.open("POST", "php/bolsovoto.php", true);
 								xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-								xhr.send("acao=botaoPressionado");
+								xhr.send();
 							});
 							break;
 						case "13":
