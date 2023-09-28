@@ -5,8 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bina</title>
-	<link rel="stylesheet" href="style/main.css">
-
+	<!-- CSS -->
+	<link rel="stylesheet" href="style/style.css">
+	<!-- Fontes -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -70,8 +71,6 @@
 	</form>
 
 	<script>
-		// Está enviando votos mesmo sem apertar no confirma. Consertar urgentemente
-
 		// Previnir a página de recarregar ao dar um submit
 		let form = document.getElementById("form");
 
@@ -144,8 +143,14 @@
 
 							document.getElementById("confirma").addEventListener('click', function() {
 								toca();
-								// alerta();
-								// setTimeout(alerta, 100);
+								alerta();
+
+								// Requisição via AJAX
+								let xhr = new XMLHttpRequest();
+								xhr.open("POST", "php/lulavotos.php", true);
+								xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+								xhr.send();
 							});
 							break;
 					}
