@@ -64,15 +64,15 @@ buttons.forEach(button => {
 
 				// Requisição via AJAX
 				let xhr = new XMLHttpRequest();
-				xhr.open("POST", "php/nulo.php", true);
+				xhr.open("POST", "php/branco.php", true);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 				xhr.send();
 			};
 		}
-		if (digit == 'confirma' && lastDigit == null) {
-			alert('nulo');
-		}
+		// if (digit == 'confirma' && lastDigit == null) {
+		// 	alert('nulo');
+		// }
 
 		if (!isNaN(digit) && lastDigit !== null) {
 			let consecDigitos = lastDigit + digit;
@@ -122,6 +122,21 @@ buttons.forEach(button => {
 
 						xhr.send();
 					};
+					break;
+
+				default:
+					numres.innerHTML = "Nulo";
+
+					confirma.onclick = function() {
+						toca();
+						alerta();
+
+						let xhr = new XMLHttpRequest();
+						xhr.open("POST", "php/nulo.php", true);
+						xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+						xhr.send();
+					}
 					break;
 			}
 		}

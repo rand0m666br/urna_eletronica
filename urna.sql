@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 21/08/2023 às 16:15
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Host: localhost
+-- Tempo de geração: 19/10/2023 às 01:04
+-- Versão do servidor: 10.4.27-MariaDB
+-- Versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,10 +37,63 @@ CREATE TABLE `bolsovotos` (
 --
 
 INSERT INTO `bolsovotos` (`id`, `hora`) VALUES
-(1, '2023-08-21 13:46:07'),
-(2, '2023-08-21 13:49:08'),
-(3, '2023-08-21 13:55:46'),
-(4, '2023-08-21 13:57:29');
+(1, '2023-09-28 18:12:21'),
+(2, '2023-09-28 18:12:52'),
+(3, '2023-09-28 18:15:04'),
+(4, '2023-09-28 18:25:24'),
+(5, '2023-10-17 16:30:44'),
+(6, '2023-10-17 16:40:07'),
+(7, '2023-10-17 16:40:53'),
+(8, '2023-10-17 16:50:57'),
+(9, '2023-10-17 16:51:42'),
+(10, '2023-10-17 16:52:21'),
+(11, '2023-10-17 16:52:26'),
+(12, '2023-10-17 16:52:31'),
+(13, '2023-10-17 16:52:58'),
+(14, '2023-10-17 16:54:18'),
+(15, '2023-10-17 16:54:28'),
+(16, '2023-10-17 16:54:45'),
+(17, '2023-10-17 16:54:52'),
+(18, '2023-10-18 00:48:47'),
+(19, '2023-10-18 00:49:38'),
+(20, '2023-10-18 00:50:33'),
+(21, '2023-10-18 00:56:27'),
+(22, '2023-10-18 17:18:32'),
+(23, '2023-10-18 17:40:08'),
+(24, '2023-10-18 19:30:39'),
+(25, '2023-10-18 19:31:22'),
+(26, '2023-10-18 19:31:39'),
+(27, '2023-10-18 19:31:59'),
+(28, '2023-10-18 19:34:51'),
+(29, '2023-10-18 19:34:53'),
+(30, '2023-10-18 19:34:54'),
+(31, '2023-10-18 19:34:55'),
+(32, '2023-10-18 19:34:55'),
+(33, '2023-10-18 19:34:55'),
+(34, '2023-10-18 19:34:56'),
+(35, '2023-10-18 19:34:56'),
+(36, '2023-10-18 19:34:56'),
+(37, '2023-10-18 19:34:56'),
+(38, '2023-10-18 19:34:56');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `brancovotos`
+--
+
+CREATE TABLE `brancovotos` (
+  `id` int(11) NOT NULL,
+  `hora` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `brancovotos`
+--
+
+INSERT INTO `brancovotos` (`id`, `hora`) VALUES
+(1, '2023-10-18 23:02:37'),
+(2, '2023-10-18 23:02:48');
 
 -- --------------------------------------------------------
 
@@ -58,10 +111,11 @@ CREATE TABLE `lulavotos` (
 --
 
 INSERT INTO `lulavotos` (`id`, `hora`) VALUES
-(1, '2023-08-21 13:33:53'),
-(2, '2023-08-21 13:46:19'),
-(3, '2023-08-21 13:50:24'),
-(4, '2023-08-21 13:50:41');
+(1, '2023-09-28 18:16:55'),
+(2, '2023-09-28 18:23:21'),
+(3, '2023-10-17 21:27:06'),
+(4, '2023-10-18 17:40:55'),
+(5, '2023-10-18 19:31:09');
 
 -- --------------------------------------------------------
 
@@ -79,9 +133,12 @@ CREATE TABLE `nullvotos` (
 --
 
 INSERT INTO `nullvotos` (`id`, `hora`) VALUES
-(1, '2023-08-21 13:46:10'),
-(2, '2023-08-21 13:48:36'),
-(3, '2023-08-21 13:55:47');
+(1, '2023-10-18 17:44:11'),
+(2, '2023-10-18 17:45:37'),
+(3, '2023-10-18 17:45:49'),
+(4, '2023-10-18 19:27:29'),
+(5, '2023-10-18 23:02:57'),
+(6, '2023-10-18 23:03:06');
 
 --
 -- Índices para tabelas despejadas
@@ -91,6 +148,12 @@ INSERT INTO `nullvotos` (`id`, `hora`) VALUES
 -- Índices de tabela `bolsovotos`
 --
 ALTER TABLE `bolsovotos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `brancovotos`
+--
+ALTER TABLE `brancovotos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -113,19 +176,25 @@ ALTER TABLE `nullvotos`
 -- AUTO_INCREMENT de tabela `bolsovotos`
 --
 ALTER TABLE `bolsovotos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT de tabela `brancovotos`
+--
+ALTER TABLE `brancovotos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `lulavotos`
 --
 ALTER TABLE `lulavotos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `nullvotos`
 --
 ALTER TABLE `nullvotos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

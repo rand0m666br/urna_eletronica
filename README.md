@@ -5,7 +5,7 @@
 Uma urna eletrônica feita usando javascript e PHP. Este projeto ainda está em desenvolvimento, pretendo deixá-lo melhor e mais completo futuramente.
 
 ### Próximas atualizações:
-- [ ] Adicionar opção de votos nulos
+- [x] Adicionar opção de votos nulos
 - [ ] Adicionar mais candidatos
 - [ ] Melhorias no front end
 - [ ] Melhorias no back end
