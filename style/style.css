@@ -25,7 +25,7 @@ form {
 	margin-left: 40px;
 }
 
-#jus {
+#jus, #msgbranco, #obg {
 	background-color: rgb(255, 255, 255);
 	width: 600px;
 	height: 400px;
@@ -34,6 +34,30 @@ form {
 	position: absolute;
 	z-index: 20;
 	text-align: center;
+}
+
+#msgbranco, #obg {
+	display: none;
+}
+
+#msgbranco {
+	height: 300px;
+}
+
+#msgbranco span {
+	text-transform: uppercase;
+	font-size: 40px;
+	display: block;
+	margin-top: 29%;
+}
+
+#obg span {
+	font-size: 200px;
+	display: block;
+	margin-top: 70px;
+}
+
+#jus {
 	display: block;
 }
 
@@ -48,43 +72,6 @@ form {
 	font-size: 40px;
 	display: block;
 	margin-top: 10px;
-}
-
-#msgbranco {
-	background-color: rgb(255, 255, 255);
-	width: 600px;
-	height: 250px;
-	margin-top: 75px;
-	margin-left: 40px;
-	position: absolute;
-	z-index: 20;
-	text-align: center;
-	display: none;
-}
-
-#msgbranco span {
-	text-transform: uppercase;
-	font-size: 40px;
-	display: block;
-	margin-top: 29%;
-}
-
-#obg {
-	background-color: rgb(255, 255, 255);
-	width: 600px;
-	height: 400px;
-	margin-top: 75px;
-	margin-left: 40px;
-	position: absolute;
-	z-index: 20;
-	text-align: center;
-	display: none;
-}
-
-#obg span {
-	font-size: 200px;
-	display: block;
-	margin-top: 70px;
 }
 
 .teclado {
@@ -194,6 +181,7 @@ form {
 	margin-left: 515px;
 	margin-top: 320px;
 	font-size: 12px;
+	display: block;
 }
 
 #titulo {

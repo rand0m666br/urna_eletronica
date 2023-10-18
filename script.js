@@ -1,6 +1,5 @@
 // Previnir a página de recarregar ao dar um submit
 let form = document.getElementById("form");
-
 function handleForm(event) {
 	event.preventDefault();
 }
@@ -12,22 +11,26 @@ function toca() {
 	audio.play();
 }
 
+// Voto em branco
+const msgBranco = document.getElementById("msgbranco");
+function votoBranco() {
+	msgBranco.style.display = "block"
+	document.getElementById("vicepres").style.display = "none";
+}
+
 // Mostrar mensagem de fim
 function alerta() {
 	const obg = document.getElementById("obg");
 	obg.style.display = "block";
+	if(msgBranco.style.display == "block"){
+		msgBranco.style.display = "none";
+	}
 }
 
 // Esconder imagem inicial
 function esconde() {
 	const jus = document.getElementById("jus");
 	jus.style.display = "none";
-}
-
-// Voto em branco
-function votoBranco() {
-	const msgBranco = document.getElementById("msgbranco");
-	msgBranco.style.display = "block"
 }
 
 // Capturar 2 dígitos consecutivos digitados
@@ -39,16 +42,6 @@ buttons.forEach(button => {
 		let digit = event.target.id;
 		esconde();
 
-		// Detectando caso o voto seja BRANCO ou NULO
-		// Melhorar isso aqui depois
-		if (digit == 'branco') {
-			// alert('branco');
-			votoBranco();
-		}
-		if (digit == 'confirma' && lastDigit == null) {
-			alert('nulo');
-		}
-
 		// Pegar elementos do HTML
 		let candidato = document.getElementById("candidato");
 		let vice = document.getElementById("vice");
@@ -58,12 +51,35 @@ buttons.forEach(button => {
 		let viceres = document.getElementById("viceres");
 		let confirma = document.getElementById("confirma");
 
+		// Detectando caso o voto seja BRANCO ou NULO
+		// Melhorar isso aqui depois
+
+		// Votos em branco
+		if (digit == 'branco') {
+			votoBranco();
+
+			confirma.onclick = function() {
+				toca();
+				alerta();
+
+				// Requisição via AJAX
+				let xhr = new XMLHttpRequest();
+				xhr.open("POST", "php/nulo.php", true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+				xhr.send();
+			};
+		}
+		if (digit == 'confirma' && lastDigit == null) {
+			alert('nulo');
+		}
+
 		if (!isNaN(digit) && lastDigit !== null) {
 			let consecDigitos = lastDigit + digit;
 
 			// Ação a ser executada ao apertar 2 dígitos
 			switch (consecDigitos) {
-				// esconde();
+				// Votos para o candidato 22
 				case "22":
 					candidato.style.backgroundImage = "url('imagens/22p.png')";
 					vice.style.backgroundImage = "url('imagens/22vice.png')";
@@ -71,8 +87,9 @@ buttons.forEach(button => {
 					nomeres.innerHTML = 'Jair Bolsonaro';
 					partres.innerHTML = 'PL';
 					viceres.innerHTML = 'Braga Netto';
+					document.getElementById("vicepres").style.display = "block";
 
-					confirma.addEventListener('click', function() {
+					confirma.onclick = function() {
 						toca();
 						alerta();
 
@@ -82,8 +99,9 @@ buttons.forEach(button => {
 						xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 						xhr.send();
-					});
+					};
 					break;
+				// Votos para o candidato 13
 				case "13":
 					candidato.style.backgroundImage = "url('imagens/13p.png')";
 					vice.style.backgroundImage = "url('imagens/13vice.png')";
@@ -91,8 +109,9 @@ buttons.forEach(button => {
 					nomeres.innerHTML = 'Lula';
 					partres.innerHTML = 'PT';
 					viceres.innerHTML = 'Geraldo Alckmin';
+					document.getElementById("vicepres").style.display = "block";
 
-					confirma.addEventListener('click', function() {
+					confirma.onclick = function() {
 						toca();
 						alerta();
 
@@ -102,13 +121,13 @@ buttons.forEach(button => {
 						xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 						xhr.send();
-					});
+					};
 					break;
 			}
 		}
 
 		lastDigit = digit;
-	})
+	});
 });
 
 document.getElementById("corrige").onclick = () => {
@@ -120,5 +139,8 @@ document.getElementById("corrige").onclick = () => {
 	nomeres.innerHTML = null;
 	partres.innerHTML = null;
 	viceres.innerHTML = null;
-	document.getElementById("ttteste").style.display = "none"
+
+	if (msgBranco.style.display == "block") {
+		msgBranco.style.display = "none";
+	}
 }
