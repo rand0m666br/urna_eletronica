@@ -25,6 +25,50 @@ form {
 	margin-left: 40px;
 }
 
+#jus {
+	background-color: rgb(255, 255, 255);
+	width: 600px;
+	height: 400px;
+	margin-top: 75px;
+	margin-left: 40px;
+	position: absolute;
+	z-index: 20;
+	text-align: center;
+	display: block;
+}
+
+#jus img {
+	display: block;
+	width: 320px;
+	margin: auto;
+}
+
+#jus span {
+	text-transform: uppercase;
+	font-size: 40px;
+	display: block;
+	margin-top: 10px;
+}
+
+#msgbranco {
+	background-color: rgb(255, 255, 255);
+	width: 600px;
+	height: 250px;
+	margin-top: 75px;
+	margin-left: 40px;
+	position: absolute;
+	z-index: 20;
+	text-align: center;
+	display: none;
+}
+
+#msgbranco span {
+	text-transform: uppercase;
+	font-size: 40px;
+	display: block;
+	margin-top: 29%;
+}
+
 #obg {
 	background-color: rgb(255, 255, 255);
 	width: 600px;
@@ -36,6 +80,7 @@ form {
 	text-align: center;
 	display: none;
 }
+
 #obg span {
 	font-size: 200px;
 	display: block;
@@ -70,6 +115,17 @@ form {
 	letter-spacing: 1px;
 }
 
+.teclado .logo #brasao {
+	width: 100px;
+	height: 80px;
+	position: absolute;
+	z-index: 30;
+	margin-left: 0;
+	margin-top: 0;
+	background-image: url("../imagens/brasao_small.png");
+	background-repeat: no-repeat;
+}
+
 .nums button {
 	height: 30px;
 	width: 40px;
@@ -82,29 +138,38 @@ form {
 	color: white;
 	border: none;
 	box-shadow: 2px 2px rgb(112, 112, 112);
+	cursor: pointer;
 }
-#branco, #corrige, #confirma {
+
+#branco,
+#corrige,
+#confirma {
 	width: 75px;
 	font-size: 15px;
 	height: 40px;
 	color: black;
 }
+
 #confirma {
 	height: 50px;
 	background-color: rgb(0, 177, 0);
 }
+
 #branco {
 	background-color: white;
 }
+
 #corrige {
 	background-color: rgb(255, 81, 0);
 }
+
 #candidato {
 	width: 125px;
 	height: 170px;
 	background-color: rgb(255, 255, 255);
 	float: right;
 }
+
 #vice {
 	width: 90px;
 	height: 115px;
@@ -113,6 +178,7 @@ form {
 	margin-top: 200px;
 	margin-right: -125px;
 }
+
 #pres {
 	float: right;
 	position: absolute;
@@ -120,6 +186,7 @@ form {
 	margin-left: 500px;
 	margin-top: 175px;
 }
+
 #vicepres {
 	float: right;
 	position: absolute;
@@ -128,6 +195,7 @@ form {
 	margin-top: 320px;
 	font-size: 12px;
 }
+
 #titulo {
 	position: absolute;
 	z-index: 11;
@@ -135,18 +203,21 @@ form {
 	margin-top: 20px;
 	font-size: 22px;
 }
+
 #resu #linha {
 	display: block;
 	margin: 30px 0;
 }
+
 #resu {
-	 position: absolute;
-	 z-index: 11;
-	 margin-top: 50px;
-	 display: block;
-	 width: 300px;
-	 background-color: rgb(255, 255, 255);
+	position: absolute;
+	z-index: 11;
+	margin-top: 50px;
+	display: block;
+	width: 400px;
+	background-color: rgb(255, 255, 255);
 }
+
 #resu span {
 	background-color: rgb(255, 255, 255);
 	font-size: 22px;
@@ -154,10 +225,12 @@ form {
 	float: right;
 	text-transform: uppercase;
 }
+
 #resu #numres {
 	font-size: 30px;
 	margin-top: -12px;
 }
+
 #confirmacao {
 	position: absolute;
 	z-index: 11;
@@ -165,8 +238,11 @@ form {
 	border-top: 1px solid black;
 	width: 500px
 }
-#confirmacao p:nth-child(2){
+
+#confirmacao p:nth-child(2) {
 	margin-left: 30px;
-}#confirmacao p:nth-child(3){
+}
+
+#confirmacao p:nth-child(3) {
 	margin-left: 60px;
 }
